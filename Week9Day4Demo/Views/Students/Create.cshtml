@@ -1,2 +1,32 @@
-﻿<h1>Student Create</h1>
+﻿@model Student
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>New Student</h2>
+        </div>
+    </div>
+</div>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="RollNo"></label>
+        <input asp-for="RollNo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateOfBirth"></label>
+        <input asp-for="DateOfBirth" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Percentage"></label>
+        <input asp-for="Percentage" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary form-btn-size">Create</button>
+    <a asp-controller="Students" asp-action="Index" class="btn btn-secondary form-btn-size">Back to List</a>
+</form>
 

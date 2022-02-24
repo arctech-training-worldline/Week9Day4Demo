@@ -1,15 +1,30 @@
 ﻿@model List<Student>
 
-<h1>Student List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Student List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Students" asp-action="Create" class="btn btn-primary">
+                Create New Student
+            </a>
+        </div>
+    </div>
+</div>
 
 <table class="table table-striped table-bordered table-hover">
     <thead>
-        <tr>
-            <th>Roll No</th>
-            <th>Name</th>
-            <th>Date of Birth</th>
-            <th>Percentage</th>
-        </tr>
+    @*<tr>
+        <td colspan="2" style="font-weight: bold; font-size: 22px;">Student List</td>
+        <td colspan="2" style="text-align: right"><button>Create New Student</button></td>
+    </tr>*@
+    <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Percentage</th>
+    </tr>
     </thead>
     <tbody>
         @foreach (var student in Model)
