@@ -1,6 +1,6 @@
-﻿namespace Week9Day4Demo.Services
+﻿namespace Week9Day4Demo.Services.BankDeposit
 {
-    public class SimpleInterestService
+    public class IciciSimpleInterestService : IBankInterestService
     {
         public double Calculate(int principle, int numberOfYears, double rateOfInterest)
         {

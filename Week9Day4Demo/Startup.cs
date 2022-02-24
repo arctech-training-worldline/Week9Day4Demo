@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Week9Day4Demo.Services;
+using Week9Day4Demo.Services.BankDeposit;
 
 namespace Week9Day4Demo
 {
@@ -24,6 +26,9 @@ namespace Week9Day4Demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddScoped<IBankInterestService, IciciSimpleInterestService>();
+            services.AddScoped<IBankInterestService, IciciCompoundInterestService>();
+            services.AddScoped<IMovieSecurityGuardService, MovieSecurityGuardService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

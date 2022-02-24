@@ -1,0 +1,38 @@
+﻿@model DepositInfo
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>ICICI Bank Deposit</h2>
+        </div>
+    </div>
+</div>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Years"></label>
+        <input asp-for="Years" class="form-control" />
+        <span asp-validation-for="Years" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary form-btn-size">Calculate Interest</button>
+    <br /><br />
+    @if (Model != null)
+    {
+        <div class="p-2 bg-primary text-white">
+            <label asp-for="Interest"></label>
+            <span>@Model.Interest</span>
+        </div>
+    }
+</form>
+
+@section Scripts
+{
+<partial name="_ValidationScriptsPartial" />
+}

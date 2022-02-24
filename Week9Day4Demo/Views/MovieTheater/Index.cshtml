@@ -1,0 +1,29 @@
+﻿@model MovieVisitor
+
+<h2>Movie Theater Screening </h2>
+
+<form method="post">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+
+    <br />
+
+    <label asp-for="Age"></label>
+    <input asp-for="Age" />
+
+    <br />
+
+    <button type="submit">Click to Check</button>
+    
+    @if (Model != null)
+    {
+        if (Model.IsAllowed)
+        {
+            <div>Dear @Model.Name Welcome to our movie</div>
+        }
+        else
+        {
+            <div>@Model.Name GET OUT!!!</div>
+        }
+    }
+</form>
