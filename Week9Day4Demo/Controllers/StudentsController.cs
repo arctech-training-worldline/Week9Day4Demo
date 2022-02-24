@@ -1,17 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Week9Day4Demo.Models;
 using Week9Day4Demo.Services;
+using Week9Day4Demo.Services.CustomValidations;
 
 namespace Week9Day4Demo.Controllers
 {
     public class StudentsController : Controller
     {
-        public StudentsController()
-        {
-            
-        }
-
         public async Task<IActionResult> Index()
         {
             var studentsService = new StudentsService();
@@ -29,6 +26,14 @@ namespace Week9Day4Demo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Student student)
         {
+            var studentValidation = new StudentValidation();
+            if (!studentValidation.CheckAgePercentageLimit(student))
+                ModelState.AddModelError("AgeValidation", "You are too old. You need at least 50% to continue!!");
+
+
+            if (!ModelState.IsValid)
+                return View();
+
             var studentService = new StudentsService();
             await studentService.InsertAsync(student);
 

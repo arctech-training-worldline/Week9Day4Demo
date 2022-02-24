@@ -43,6 +43,14 @@ namespace Week9Day4Demo.Services
                 }
             }
 
+            // If college has < 50% students passing, then don't show any students at all
+            // as college is blacklisted.
+            var studentSummaryService = new StudentSummaryService();
+            var passingCount = studentSummaryService.GetPassingCount(students);
+
+            if(passingCount < students.Count / 2)
+                students.Clear();
+
             return students;
         }
 
@@ -127,6 +135,14 @@ namespace Week9Day4Demo.Services
                     }
                 }
             }
+
+            // If college has < 50% students passing, then don't show any students at all
+            // as college is blacklisted.
+            var studentSummaryService = new StudentSummaryService();
+            var passingCount = studentSummaryService.GetPassingCount(students);
+
+            if (passingCount < students.Count / 2.0)
+                students.Clear();
 
             return students;
         }
